@@ -1,5 +1,5 @@
 // import axios from "axios";
-import { ChangeEvent, FormEvent, useEffect, useState } from "react";
+import {  useEffect, useState } from "react";
 // import toast from "react-hot-toast";
 import { BiArrowBack } from "react-icons/bi";
 // import { useDispatch, useSelector } from "react-redux";
@@ -8,12 +8,12 @@ import { useNavigate } from "react-router-dom";
 // import { RootState, server } from "../redux/store";
 
 const Shipping = () => {
-  const { cartItems, total } = useSelector(
-    (state: RootState) => state.cartReducer
-  );
+//   const { cartItems, total } = useSelector(
+    // (state: RootState) => state.cartReducer
+//   );
 
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+//   const dispatch = useDispatch();
 
   const [shippingInfo, setShippingInfo] = useState({
     address: "",
@@ -23,11 +23,11 @@ const Shipping = () => {
     pinCode: "",
   });
 
-  const changeHandler = (
-    e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
-  ) => {
-    setShippingInfo((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-  };
+//   const changeHandler = (
+//     e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
+//   ) => {
+//     setShippingInfo((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+//   };
 
 //   const submitHandler = async (e: FormEvent<HTMLFormElement>) => {
 //     e.preventDefault();
@@ -66,7 +66,8 @@ const Shipping = () => {
         <BiArrowBack />
       </button>
 
-      <form onSubmit={submitHandler}>
+      <form >
+      {/* <form onSubmit={submitHandler}> */}
         <h1>Shipping Address</h1>
 
         <input
@@ -75,7 +76,7 @@ const Shipping = () => {
           placeholder="Address"
           name="address"
           value={shippingInfo.address}
-          onChange={changeHandler}
+        //   onChange={changeHandler}
         />
 
         <input
@@ -84,7 +85,7 @@ const Shipping = () => {
           placeholder="City"
           name="city"
           value={shippingInfo.city}
-          onChange={changeHandler}
+        //   onChange={changeHandler}
         />
 
         <input
@@ -93,14 +94,14 @@ const Shipping = () => {
           placeholder="State"
           name="state"
           value={shippingInfo.state}
-          onChange={changeHandler}
+        //   onChange={changeHandler}
         />
 
         <select
           name="country"
           required
           value={shippingInfo.country}
-          onChange={changeHandler}
+        //   onChange={changeHandler}
         >
           <option value="">Choose Country</option>
           <option value="india">India</option>
@@ -112,7 +113,7 @@ const Shipping = () => {
           placeholder="Pin Code"
           name="pinCode"
           value={shippingInfo.pinCode}
-          onChange={changeHandler}
+        //   onChange={changeHandler}
         />
 
         <button type="submit">Pay Now</button>

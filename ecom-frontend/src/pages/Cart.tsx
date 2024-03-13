@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { VscError } from 'react-icons/vsc';
 import Cartitems from '../components/Cartitems';
 import { Link } from 'react-router-dom';
@@ -6,7 +6,7 @@ import CartItems from '../components/Cartitems';
 
 const cartItem = [
   {
-    photo: "https://unsplash.com/photos/a-city-street-at-night-with-cars-driving-under-a-bridge-D1a6trLekd0",
+    photo: "../assets/71ItMeqpN3L._AC_SL1500_.jpg",
     productId : "asfasdf",
     name : "Mackbook",
     price : 4000,

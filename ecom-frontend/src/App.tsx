@@ -1,11 +1,10 @@
-import { BrowserRouter as Router,Routes,Route} from "react-router-dom"
-
-import {lazy,Suspense} from 'react';
+import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import { lazy, Suspense } from "react";
 import Loader from "./components/Loader";
 
-const Cart = lazy(()=> import("./pages/Cart"))
-const Home = lazy(()=> import("./pages/Home"))
-const Search = lazy(()=> import("./pages/Search"))
+const Cart = lazy(() => import("./pages/Cart"));
+const Home = lazy(() => import("./pages/Home"));
+const Search = lazy(() => import("./pages/Search"));
 
 const Dashboard = lazy(() => import("./pages/admin/dashboard"));
 const Products = lazy(() => import("./pages/admin/products"));
@@ -18,69 +17,47 @@ const Coupon = lazy(() => import("./pages/admin/apps/coupon"));
 const Stopwatch = lazy(() => import("./pages/admin/apps/stopwatch"));
 const Toss = lazy(() => import("./pages/admin/apps/toss"));
 const NewProduct = lazy(() => import("./pages/admin/management/newproduct"));
-const ProductManagement = lazy(
-  () => import("./pages/admin/management/productmanagement")
-);
-const TransactionManagement = lazy(
-  () => import("./pages/admin/management/transactionmanagement")
-);
+const ProductManagement = lazy(() => import("./pages/admin/management/productmanagement"));
+const TransactionManagement = lazy(() => import("./pages/admin/management/transactionmanagement"));
 import Header from "./components/Header";
 import Shipping from "./pages/Shipping";
 import Login from "./pages/Login";
-// import Home from "./pages/Home"
-// import Cart from "./pages/Cart"
-// import Search from "./pages/Search"
+import Orders from "./pages/Orders";
+import OrderDetails from "./pages/OrderDetails";
 
 function App() {
-
-
   return (
-    <>
     <Router>
-    <Header />
+      <Header />
       <Suspense fallback={<Loader />}>
         <Routes>
-          <Route path="/" element = {<Home />}/>
-          <Route path="/cart" element = {<Cart />}/>
-          <Route path="/search" element = {<Search />}/>
-          <Route path="/shipping" element={<Shipping/>}/>
-          {/* authenticated */}
-          <Route path="/login" element= {<Login />} />
-          {/* admin routes  */}
-          
-<Route
-  // element={
-  //   <ProtectedRoute isAuthenticated={true} adminRoute={true} isAdmin={true} />
-  // }
->
-  <Route path="/admin/dashboard" element={<Dashboard />} />
-  <Route path="/admin/product" element={<Products />} />
-  <Route path="/admin/customer" element={<Customers />} />
-  <Route path="/admin/transaction" element={<Transaction />} />
-  {/* Charts */}
-  <Route path="/admin/chart/bar" element={<Barcharts />} />
-  <Route path="/admin/chart/pie" element={<Piecharts />} />
-  <Route path="/admin/chart/line" element={<Linecharts />} />
-  {/* Apps */}
-  <Route path="/admin/app/coupon" element={<Coupon />} />
-  <Route path="/admin/app/stopwatch" element={<Stopwatch />} />
-  <Route path="/admin/app/toss" element={<Toss />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/search" element={<Search />} />
+          <Route path="/orders" element={<Orders />} />
+          <Route path="/orders/:id" element={<OrderDetails />} />
 
-  {/* Management */}
-  <Route path="/admin/product/new" element={<NewProduct />} />
-
-  <Route path="/admin/product/:id" element={<ProductManagement />} />
-
-  <Route path="/admin/transaction/:id" element={<TransactionManagement />} />
-</Route>;
-
+          <Route path="/shipping" element={<Shipping />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/admin">
+            <Route path="dashboard" element={<Dashboard />} />
+            <Route path="product" element={<Products />} />
+            <Route path="customer" element={<Customers />} />
+            <Route path="transaction" element={<Transaction />} />
+            <Route path="chart/bar" element={<Barcharts />} />
+            <Route path="chart/pie" element={<Piecharts />} />
+            <Route path="chart/line" element={<Linecharts />} />
+            <Route path="app/coupon" element={<Coupon />} />
+            <Route path="app/stopwatch" element={<Stopwatch />} />
+            <Route path="app/toss" element={<Toss />} />
+            <Route path="product/new" element={<NewProduct />} />
+            <Route path="product/:id" element={<ProductManagement />} />
+            <Route path="transaction/:id" element={<TransactionManagement />} />
+          </Route>
         </Routes>
-
-  </Suspense>
+      </Suspense>
     </Router>
-
-    </>
-  )
+  );
 }
 
-export default App
+export default App;
