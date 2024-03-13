@@ -28,3 +28,18 @@ export default {
 - Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
 - Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
 - Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Description of website
+- Making of a full stack ecom webiste , which will have admin panel and many more thing using MERN stack , sass, RTK query , Stripe ,TypeScript,Redux
+
+# used commands 
+
+npm i react-hot-toast react-icons sass firebase react-router-dom react-table
+
+npm i --save-dev @types/react-table
+
+ git init
+ git add .
+ git commit -m "Initial Commit"
+ git remote add origin git@github.com:Bhogeshwarj/Ecommerce-MERN.git
+ git branch -M main
+ git push -u origin main

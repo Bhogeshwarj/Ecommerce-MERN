@@ -2,7 +2,6 @@ import { BrowserRouter as Router,Routes,Route} from "react-router-dom"
 
 import {lazy,Suspense} from 'react';
 import Loader from "./components/Loader";
-import Header from "./components/Header";
 
 const Cart = lazy(()=> import("./pages/Cart"))
 const Home = lazy(()=> import("./pages/Home"))
@@ -25,7 +24,9 @@ const ProductManagement = lazy(
 const TransactionManagement = lazy(
   () => import("./pages/admin/management/transactionmanagement")
 );
-
+import Header from "./components/Header";
+import Shipping from "./pages/Shipping";
+import Login from "./pages/Login";
 // import Home from "./pages/Home"
 // import Cart from "./pages/Cart"
 // import Search from "./pages/Search"
@@ -35,14 +36,16 @@ function App() {
 
   return (
     <>
-  <Suspense fallback={<Loader />}>
-    <Header />
     <Router>
+    <Header />
+      <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/" element = {<Home />}/>
           <Route path="/cart" element = {<Cart />}/>
           <Route path="/search" element = {<Search />}/>
-
+          <Route path="/shipping" element={<Shipping/>}/>
+          {/* authenticated */}
+          <Route path="/login" element= {<Login />} />
           {/* admin routes  */}
           
 <Route
@@ -72,9 +75,9 @@ function App() {
 </Route>;
 
         </Routes>
-    </Router>
 
   </Suspense>
+    </Router>
 
     </>
   )
