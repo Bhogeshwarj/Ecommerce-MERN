@@ -77,4 +77,5 @@ use it as middleware
 -create routes in the new file routes
 -add this routes to app.ts
 
+after the first notes 1:43:00
 
