@@ -56,5 +56,25 @@ brew services start mongodb-community@7.0 //in the terminal or else it will give
  
  -create a custom error handler in the middle wares so that the user dont get the error code
 
+-also create try catch error handler in the utils now so that you wont write that multipile times for each call
+
+-create different routes for deleting,finding and getting all users
+
+-write the functions to do these in controller
+
+-now setup a auth.ts in middleware so that only admin will be able access the delete , find , and see all users
+-add this  middleware to each route where we need admin access
+
+//for upload
+npm i multer
+use it as middleware
+- use the multer package to upload here in the laptop and in real life upload this data and image on the cloud
+
+-or it could take be save in the disk for short and upload all the multer data to cloud later
+
+!creating the products 
+-first of create a productSchema in models
+-create routes in the new file routes
+-add this routes to app.ts
 
 
