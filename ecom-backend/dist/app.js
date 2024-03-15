@@ -2,6 +2,7 @@ import express from 'express';
 import { errorMiddleware } from "./middlewares/error.js";
 //importing routes
 import userRoute from './routes/user.js';
+import productRoute from './routes/products.js';
 import { connectDB } from './utils/features.js';
 const port = 3000;
 connectDB();
@@ -13,6 +14,7 @@ app.get('/', (req, res) => {
 });
 //using routes
 app.use("/api/v1/user", userRoute);
+app.use("/api/v1/product", productRoute);
 app.use(errorMiddleware);
 app.listen(port, () => {
     console.log(`server is working on port ${port} `);

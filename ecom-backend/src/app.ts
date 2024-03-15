@@ -3,7 +3,7 @@ import { errorMiddleware } from "./middlewares/error.js";
 
 //importing routes
 import userRoute from './routes/user.js';
-
+import productRoute from './routes/products.js';
 
 
 import { connect } from 'http2';
@@ -22,6 +22,7 @@ app.get('/',(req,res)=>{
 
 //using routes
 app.use("/api/v1/user",userRoute);
+app.use("/api/v1/product", productRoute);
 
 app.use(errorMiddleware);
 
