@@ -15,6 +15,8 @@ app.get('/', (req, res) => {
 //using routes
 app.use("/api/v1/user", userRoute);
 app.use("/api/v1/product", productRoute);
+app.use("/uploads", express.static("uploads"));
+// http://localhost:3000/uploads/3990288.jpg  
 app.use(errorMiddleware);
 app.listen(port, () => {
     console.log(`server is working on port ${port} `);

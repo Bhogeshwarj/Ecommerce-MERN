@@ -79,3 +79,9 @@ use it as middleware
 
 after the first notes 1:43:00
 
+take see through the notes and commits
+
+-create the products route and create a static upload for downloading 
+
+-use uuid to create unique name
+
