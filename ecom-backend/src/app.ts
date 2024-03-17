@@ -1,5 +1,6 @@
 import express from 'express';
 import { errorMiddleware } from "./middlewares/error.js";
+import NodeCache from 'node-cache';
 
 //importing routes
 import userRoute from './routes/user.js';
@@ -11,6 +12,10 @@ import { connectDB } from './utils/features.js';
 
 const port = 3000;
 connectDB();
+
+// export const nodeCache = new NodeCache({ stdTTL: 100, checkperiod: 120 });
+export const myCache = new NodeCache();
+// it will save data in ram
 const app = express();
 app.use(express.json());
 
