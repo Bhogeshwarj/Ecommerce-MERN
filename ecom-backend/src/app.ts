@@ -1,11 +1,18 @@
 import express from 'express';
 import { errorMiddleware } from "./middlewares/error.js";
 import NodeCache from 'node-cache';
+import { config } from 'dotenv';
 
 //importing routes
 import userRoute from './routes/user.js';
 import productRoute from './routes/products.js';
+import orderRoute from './routes/orders.js';
 
+config({
+    path:"../.env"
+});
+
+console.log(process.env.PORT);
 
 import { connect } from 'http2';
 import { connectDB } from './utils/features.js';
@@ -28,6 +35,7 @@ app.get('/',(req,res)=>{
 //using routes
 app.use("/api/v1/user",userRoute);
 app.use("/api/v1/product", productRoute);
+app.use("/api/v1/order", orderRoute);
 
 app.use("/uploads", express.static("uploads"));
 // http://localhost:3000/uploads/3990288.jpg  
