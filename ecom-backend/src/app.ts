@@ -7,24 +7,27 @@ import { config } from 'dotenv';
 import userRoute from './routes/user.js';
 import productRoute from './routes/products.js';
 import orderRoute from './routes/orders.js';
+import morgan from 'morgan';
 
 config({
-    path:"../.env"
+    path:"./.env"
 });
-
-console.log(process.env.PORT);
 
 import { connect } from 'http2';
 import { connectDB } from './utils/features.js';
 
-const port = 3000;
-connectDB();
+const port = process.env.PORT || 3000;
+const mongoURI = process.env.MONGO_URI || "";
+
+connectDB(mongoURI);
 
 // export const nodeCache = new NodeCache({ stdTTL: 100, checkperiod: 120 });
 export const myCache = new NodeCache();
 // it will save data in ram
 const app = express();
+
 app.use(express.json());
+app.use(morgan("dev"));
 
 app.get('/',(req,res)=>{
     res.send(`<h1>hello world</h1>
